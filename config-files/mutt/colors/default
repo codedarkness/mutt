@@ -1,0 +1,50 @@
+##  ____             _                         ____          _
+## |  _ \  __ _ _ __| | ___ __   ___  ___ ___ / ___|___   __| | ___
+## | | | |/ _' | '__| |/ / '_ \ / _ \/ __/ __| |   / _ \ / _' |/ _ \
+## | |_| | (_| | |  |   <| | | |  __/\__ \__ \ |__| (_) | (_| |  __/
+## |____/ \__,_|_|  |_|\_\_| |_|\___||___/___/\____\___/ \__,_|\___|
+## -----------------------------------------------------------------
+## https://darkncesscode.com
+## https://github.com/codedarkness
+## -----------------------------------------------------------------
+
+# background diver ----- foreground ---- background -----------------
+color sidebar_divider	 default	 color245
+
+# general -------------- foreground ---- background ------------------
+color error		 color1		 default
+color indicator		 color231	 color245
+color markers		 color210	 default
+color message		 default	 default
+color normal		 default	 default
+color prompt		 default	 default
+color search		 color84	 default
+color status 		 color255	 color245
+color tilde		 color231	 default
+color tree		 color141	 default
+
+# message index -------- foreground ---- background ------------------
+color index		 color210	 default 	~D # deleted messages
+color index		 color24	 default 	~F # flagged messages
+color index		 color117	 default 	~N # new messages
+color index		 default	 default 	~Q # messages which have been replied to
+color index		 color103	 default 	~T # tagged messages
+color index		 color188	 default	~v # messages part of a collapsed thread
+
+# message headers ------ foreground ---- background ------------------
+color hdrdefault	 color145	 default
+color header		 color231	 default	^Subject:.*
+
+# message body --------- foreground ---- background ------------------
+color attachment	 color103	 default
+color body		 color231	 default	[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
+color body		 color228	 default	(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
+color body		 color231	 default	(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
+color body		 color231	 default	(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
+color body		 color231	 default	(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
+color quoted		 color251	 default
+color quoted1		 color252	 default
+color quoted2		 color253	 default
+color quoted3		 color254	 default
+color quoted4		 color255	 default
+color signature		 default	 default

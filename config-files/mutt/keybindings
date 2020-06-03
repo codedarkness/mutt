@@ -1,0 +1,60 @@
+##  ____             _                         ____          _
+## |  _ \  __ _ _ __| | ___ __   ___  ___ ___ / ___|___   __| | ___
+## | | | |/ _' | '__| |/ / '_ \ / _ \/ __/ __| |   / _ \ / _' |/ _ \
+## | |_| | (_| | |  |   <| | | |  __/\__ \__ \ |__| (_) | (_| |  __/
+## |____/ \__,_|_|  |_|\_\_| |_|\___||___/___/\____\___/ \__,_|\___|
+## -----------------------------------------------------------------
+## https://darkncesscode.com
+## https://github.com/codedarkness
+## -----------------------------------------------------------------
+
+## Keybindings (general rebindings)
+bind index j next-entry
+bind index k previous-entry
+bind index l display-message
+bind index h noop
+
+bind pager j next-line
+bind pager k previous-line
+
+bind browser l select-entry
+
+macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
+
+bind attach l view-mailcap
+bind pager l view-attachments
+bind attach <return> view-mailcap
+bind pager,attach h exit
+
+bind editor <space> noop
+
+bind index G last-entry
+bind index gg first-entry
+
+bind index D delete-message
+bind index U undelete-message
+bind index L limit
+
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+
+bind index,pager S sync-mailbox
+bind index,pager R group-reply
+
+bind index <space> tag-entry
+bind editor <Tab> complete-query
+
+## Select folder in sidebar
+bind index \Cp sidebar-prev
+bind index \Cn sidebar-next
+bind index \Co sidebar-open
+
+bind pager \Cp sidebar-prev
+bind pager \Cn sidebar-next
+bind pager \Co sidebar-open
+
+## Change mailbox
+macro index \Cy '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/yahoo<enter><change-folder>!<enter>'
+macro index \Cg '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/gmail<enter><change-folder>!<enter>'
+macro index \Ch '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/hotmail<enter><change-folder>!<enter>'
+macro index \Cc '<sync-mailbox><enter-command>source ~/.config/mutt/accounts/custom<enter><change-folder>!<enter>'

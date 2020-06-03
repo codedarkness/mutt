@@ -1,0 +1,47 @@
+# Instructions to setup Mutt
+
+This is just a simple but full funtional installation and setup for mutt.
+
+# NOTE:
+
+For this setup is strongly recomended just for a personal computer (just one user).
+
+The passwords are in plain text, is recomended to change the owner and permissions of the files that have sencentive data.
+
+# Instrucction
+
+  * Install mutt
+  * Copy config (custom) files
+  * Add/Edit accouts (using the script)
+
+## More than one account
+
+You can create a custome file for each of your accounts, in the directory _/.config/mutt/accounts_ (you can name them with whatever name you want it).
+
+Then in your muttrc (~/.muttrc) add at the begining of the file the full path and name or your acounts like:
+
+### Default account
+
+> source ~/.config/mutt/accounts/name_of_file
+
+### Other accounts
+
+> folder-hook 'acount_name' 'source ~/.config/mutt/accounts/name_of_file
+
+## Keybindins
+
+The kyebindins for this are store in
+
+> ~/.config/mutt/kybindings
+
+## Color
+
+There are two color schemes for this mutt setup. In muttrc file you can change the color (default or dracula).
+
+The color files are store in:
+
+> ~/.config/mutt/colors/
+
+Before instaling mutt check the */config-files/mutt* directory and *muttrc* and make all changes you need to fit your personal prefference.
+
+Press q to close
