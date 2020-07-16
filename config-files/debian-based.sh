@@ -24,17 +24,36 @@
 install-mutt() {
 	echo ""
 	echo " Getting ready to install mutt"
+	echo ""
 	sleep 2;
+
 	dpkg -l | grep  mutt &&
-		echo " ### mutt is install in your system" ||
-		sudo apt install -y  mutt
+	echo " ### mutt is install in your system" ||
+	sudo apt install -y  mutt
+	echo ""
 }
 
 config-files() {
+	echo ""
+	echo " Copy configuration files and creating some nuew directories"
+	echo ""
+	sleep 2;
+
 	cp -ar config-files/muttrc ~/.muttrc &&
-		echo " ### new muttrc has been copied";
+	echo " New muttrc has been copied" || echo " Something is wrong!"
+	echo ""
+
 	cp -ar config-files/mutt ~/.config/ &&
-		echo " ### new config files for mutt has been copied"
+	echo " New config files for mutt has been copied" || echo " Upsss!"
+	echo ""
+
+	mkdir ~/.config/mutt/cache/headers &&
+	echo " Headers directory has been created" || echo " Something is broken"
+	echo ""
+
+	mkdir ~/.config/mutt/cache/bodies &&
+	echo " Bodies directory has been created" || echo " Wha't wrong with you!"
+	echo ""
 }
 
 setup-yahoo() {
@@ -74,9 +93,8 @@ until [ "$selection" = "0" ]; do
 	echo " | '_ ' _ \| | | | __| __| |  | |/ _ \ '_ \| |/ _' | '_ \  "
 	echo " | | | | | | |_| | |_| |_| |__| |  __/ |_) | | (_| | | | | "
 	echo " |_| |_| |_|\__,_|\__|\__|_____/ \___|_.__/|_|\__,_|_| |_| "
-	echo " ----------------------------------------------------------"
-	echo " ###              install and  setup mutt               ###"
-	echo " ----------------------------------------------------------"
+	echo ""
+	echo " install and  setup mutt"
 	echo ""
 	echo " 1 - Install Mutt"
 	echo " 2 - Copy config files (new installations)"
@@ -84,14 +102,12 @@ until [ "$selection" = "0" ]; do
 	echo " 4 - Set up gmail account"
 	echo " 5 - Set up hotmail account"
 	echo " 6 - Set up custom account"
+	echo ""
 	echo " 0 - Exit"
 	echo ""
-	echo " --------------------------------------------------"
-	echo " Note: "
-	echo " --------------------------------------------------"
+	echo " Note:"
 	echo " This kind of setup is for a personal computer use"
 	echo " Becarfull with your passwords"
-	echo " --------------------------------------------------"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
 	read selection
