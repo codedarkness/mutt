@@ -21,12 +21,8 @@
 #
 # -----------------------------------------------------------------
 
-arch-based() {
-	config-files/arch-based.sh
-}
-
-debian-based() {
-	config-files/debian-based.sh
+install-mutt() {
+	config-files/systems/install-mutt.sh
 }
 
 edit-muttar() {
@@ -58,14 +54,13 @@ until [ "$selection" = "0" ]; do
 	echo " | '_ ' _ \| | | | __| __| "
 	echo " | | | | | | |_| | |_| |_  "
 	echo " |_| |_| |_|\__,_|\__|\__| "
-	echo " ---------------------------------"
-	echo " ### mutt/neomutt email client ###"
-	echo " ---------------------------------"
 	echo ""
-	echo " 1 - Install in Arch Based"
-	echo " 2 - Install in Debian Based"
-	echo " 3 - Edit muttrc"
-	echo " 4 - Readme (instructions)"
+	echo " mutt/neomutt terminal based email client"
+	echo ""
+	echo " 1 - Install"
+	echo " 2 - Edit muttrc"
+	echo " 3 - Readme (instructions)"
+	echo ""
 	echo " 0 - Exit"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
@@ -73,10 +68,9 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; arch-based   ;;
-		2) clear; debian-based ;;
-		3) clear; edit-muttar  ;;
-		4) clear; readme      ;;
+		1) clear; install-mutt ;;
+		2) clear; edit-muttar  ;;
+		3) clear; readme      ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac
