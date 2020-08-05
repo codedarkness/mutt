@@ -67,6 +67,12 @@ auto_view text/html		# automatically show html (mailcap uses w3m)
 auto_view application/pgp-encrypted
 alternative_order text/plain text/enriched text/html
 
-## source colors and keybindings
-source ~/.config/mutt/colors/default
+## colors
+#source ~/.config/mutt/colors/color_00
+source ~/.config/mutt/colors/color_01
+#source ~/.config/mutt/colors/color_02
+#source ~/.config/mutt/colors/color_03
+#source ~/.config/mutt/colors/color_04
+
+## keybindings
 source ~/.config/mutt/keybindings

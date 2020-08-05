@@ -115,8 +115,10 @@ config-files() {
 	echo " colors directory was created" || echo " $colorsdir already exist!"
 	echo ""
 
-	cp -af config-files/configs/default $HOME/.config/mutt/colors/ &&
-	cp -af config-files/configs/dracula $HOME/.config/mutt/colors/ &&
+	cp -af config-files/configs/color_00 $HOME/.config/mutt/colors/ &&
+	cp -af config-files/configs/color_01 $HOME/.config/mutt/colors/ &&
+	cp -af config-files/configs/color_02 $HOME/.config/mutt/colors/ &&
+	cp -af config-files/configs/color_03 $HOME/.config/mutt/colors/ &&
 	echo " color have been copied" || echo " Sorryyyyyy!"
 	echo ""
 
