@@ -61,7 +61,7 @@ config-files() {
 	echo ""
 	echo " Copy configuration files and new directories"
 	echo ""
-	sleep 2;
+	sleep 2
 
 	## mutt directory
 	### Check for dir, if not found create it using the mkdir ###
@@ -100,11 +100,25 @@ config-files() {
 	echo " bodies directory was created" || echo " $accdir already exist!"
 	echo ""
 
-	cp -af config-files/configs/custom $HOME/.config/mutt/accounst/ &&
-	cp -af config-files/configs/gmail $HOME/.config/mutt/accounst/ &&
-	cp -af config-files/configs/hotmail $HOME/.config/mutt/accounst/ &&
-	cp -af config-files/configs/yahoo $HOME/.config/mutt/accounst/ &&
+	cp -af config-files/configs/custom $HOME/.config/mutt/accounts/ &&
+	cp -af config-files/configs/gmail $HOME/.config/mutt/accounts/ &&
+	cp -af config-files/configs/hotmail $HOME/.config/mutt/accounts/ &&
+	cp -af config-files/configs/yahoo $HOME/.config/mutt/accounts/ &&
 	echo " accounts files have been copied" || echo " Sorry is not you!!"
+	echo ""
+
+	# colors
+	## colors directory
+	### Check for dir, if not found create it using the mkdir ###
+	colordir="$HOME/.config/mutt/colors"
+	[ ! -d "$colordir" ] && mkdir -p "$colordir" &&
+	echo " colors directory was created" || echo " $colorsdir already exist!"
+	echo ""
+
+	cp -af config-files/configs/default $HOME/.config/mutt/colors/ &&
+	cp -af config-files/configs/dracula $HOME/.config/mutt/colors/ &&
+	echo " color have been copied" || echo " Sorryyyyyy!"
+	echo ""
 
 	cp -af config-files/configs/muttrc $HOME/.muttrc &&
 	echo " New muttrc has been copied" || echo " Something is wrong!"
@@ -112,19 +126,136 @@ config-files() {
 }
 
 setup-yahoo() {
-	vim $HOME/.config/mutt/accounts/yahoo
+	echo ""
+	echo " Setting up Yahoo account"
+	echo " Follow the instructions to setup the account"
+	echo ""
+	sleep 2
+
+	read -p " Which is your name (show in email) : " choice;
+	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
+	echo ""
+
+	read -p " Which is your email address : " choice;
+	sed -i 's/set from = "*."/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	echo " email address was added to yahoo account" || echo " Mhummmmm!"
+	echo ""
+
+	read -p " Which is your yahoo username : " choice;
+	sed -i 's/set smtp_url = "smtps://.*@smtp.mail.yahoo.com:465"/set smtp_url = "smtps://'$choice'@smtp.mail.yahoo.com:465"/g' $HOME/.config/mutt/accounts/yahoo &&
+	echo " username was added to smtp_url" || echo " it's not you!! but there's a problem"
+	echo ""
+
+	read -p " Which is your password : " choice;
+	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	echo " your password has been saved" || echo " We have a problem!"
+	echo ""
+
+	echo " Your yahoo accoun is setting up!"
+	echo ""
 }
 
 setup-gmail() {
-	vim $HOME/.config/mutt/accounts/gmail
+	echo ""
+	echo " Setting up Gmail account"
+	echo " Follow the instructions to setup the account"
+	echo ""
+	sleep 2
+
+	read -p " Which is your name (show in email) : " choice;
+	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail  &&
+	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
+	echo ""
+
+	read -p " Which is your email address : " choice;
+	sed -i 's/set from = "*."/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set smtp_url = "smtps://.*@smtp.gmail.com:465"/set smtp_url = "smtps://'$choice'@smtp.gmail.com:465"/g' $HOME/.config/mutt/accounts/gmail &&
+	echo " email address was added to gmail account" || echo " Mhummmmm!"
+	echo ""
+
+	read -p " Which is your password : " choice;
+	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	echo " your password has been saved" || echo " We have a problem!"
+	echo ""
+
+	echo " Your Gmail account is setting up!"
+	echo ""
 }
 
 setup-hotmail() {
-	vim $HOME/.config/mutt/accounts/hotmial
+	echo ""
+	echo " Setting up Hotmail account"
+	echo " Follow the instructions to setup the account"
+	echo ""
+	sleep 2
+
+	read -p " Which is your name (show in email) : " choice;
+	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
+	echo ""
+
+	read -p " Which is your email address : " choice;
+	sed -i 's/set from = "*."/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set smtp_url = "smtps://.*@smtp.gmail.com:465"/set smtp_url = "smtps://'$choice'@smtp.gmail.com:465"/g' $HOME/.config/mutt/accounts/hotmail &&
+	echo " email address was added to gmail account" || echo " Mhummmmm!"
+	echo ""
+
+	read -p " Which is your password : " choice;
+	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	echo " your password has been saved" || echo " We have a problem!"
+	echo ""
+
+	echo " Your Hotmail account is setting up!"
+	echo ""
 }
 
 custom-account() {
-	vim $HOME/.config/mutt/accounts/custom
+	echo ""
+	echo " Setting up a custom account"
+	echo " Follow the instructions to setup the account"
+	echo ""
+	sleep 2
+
+	read -p " Which is your name (show in email) : " choice;
+	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
+	echo ""
+
+	read -p " Which is your email address : " choice;
+	sed -i 's/set from = ".*"/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	echo " email address was ben setup" || echo " We have a problem"
+	echo ""
+
+	read -p " Which is your imap user@address:465 : " choice;
+	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	echo " imap user was added to the account" || echo " Mhummmmm!"
+	echo ""
+
+	read -p " Which is the imap address : " choice;
+	sed -i 's/set folder = "imap://.*:993"/set imap_user = "imap://'$choice':993"/g' $HOME/.config/mutt/accounts/custom &&
+	echo " imap folder was added to the account" || echo " Mhummmmm!"
+	echo ""
+
+	read -p " Which is your custom smtp : " choice;
+	sed -i 's/set smtp_url = ".*"/set smtp_url = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	echo " The smtp url was added to the account" || echo " it's not you!! but there's a problem"
+	echo ""
+
+	read -p " Which is your password : " choice;
+	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	echo " your password has been saved" || echo " We have a problem!"
+	echo ""
+
+	echo " Your custom accoun is setting up!"
+	echo ""
 }
 
 press_enter() {
@@ -170,12 +301,12 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; install-mutt    ; press_enter ;;
-		2) clear; copy-files      ; press_enter ;;
-		3) clear; setup-yahoo    ;;
-		4) clear; setup-gmail    ;;
-		5) clear; setup-hotmail  ;;
-		6) clear; custom-account ;;
+		1) clear; install-mutt   ; press_enter ;;
+		2) clear; config-files   ; press_enter ;;
+		3) clear; setup-yahoo    ; press_enter ;;
+		4) clear; setup-gmail    ; press_enter ;;
+		5) clear; setup-hotmail  ; press_enter ;;
+		6) clear; custom-account ; press_enter ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac

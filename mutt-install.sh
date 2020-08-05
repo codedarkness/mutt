@@ -55,7 +55,7 @@ until [ "$selection" = "0" ]; do
 	echo " | | | | | | |_| | |_| |_  "
 	echo " |_| |_| |_|\__,_|\__|\__| "
 	echo ""
-	echo " mutt/neomutt terminal based email client"
+	echo " mutt a terminal based email client"
 	echo ""
 	echo " 1 - Install"
 	echo " 2 - Edit muttrc"
