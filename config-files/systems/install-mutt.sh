@@ -36,25 +36,28 @@ install-mutt() {
 					# check if pacman is installed
 					if which pacman > /dev/null; then
 
-						sudo pacman -S --noconfirm --needed mutt
-
-					fi
+						sudo pacman -S --noconfirm mutt
 
 					# check if apt is installed
-					if which apt > /dev/null; then
+					elif which apt > /dev/null; then
 
 						sudo apt install -y mutt
 
+					else
+
+						echo " Your system is not Arch or Debian Based System"
 					fi
 
-				else
-					echo " nothing to do!"
-				fi; break ;;
+					else
+						echo " Nothing to do! mutt is installed in your System"
+				fi ; break ;;
 			[Nn]* )
 				break ;;
 			* ) echo "Please answer yes or no." ;;
 		esac
 	done
+
+	echo ""
 }
 
 config-files() {
