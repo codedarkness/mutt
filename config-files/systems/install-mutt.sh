@@ -24,6 +24,7 @@
 install-mutt() {
 	echo ""
 	echo " Getting ready to install mutt"
+	echo " Arch Linux | Debian | Void Linux"
 	echo ""
 	sleep 2;
 
@@ -43,9 +44,14 @@ install-mutt() {
 
 						sudo apt install -y mutt
 
+					# check if xbps is installed
+					elif which xbps-install > /dev/null 2>&1; then
+
+						sudo xbps-install -Sy mutt
+
 					else
 
-						echo " Your system is not Arch or Debian Based System"
+						echo " Your system is not compatible with this script..."
 					fi
 
 					else
