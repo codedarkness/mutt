@@ -5,7 +5,7 @@
 # | |_| | (_| | |  |   <| | | |  __/\__ \__ \ |__| (_) | (_| |  __/
 # |____/ \__,_|_|  |_|\_\_| |_|\___||___/___/\____\___/ \__,_|\___|
 # -----------------------------------------------------------------
-# https://darkncesscode.com
+# https://darkncesscode.xyz
 # https://github.com/codedarkness
 # -----------------------------------------------------------------
 #
@@ -15,7 +15,7 @@
 # DESCRIPTION: install mutt in arch and debian based systems
 #
 #      AUTHOR: DarknessCode
-#       EMAIL: admin@darknesscode.com
+#       EMAIL: achim@darknesscode.xyz
 #
 #     CREATED: 05-30-20 6:57
 #
@@ -35,12 +35,12 @@ install-mutt() {
 				if ! location="$(type -p "mutt")" || [ -z "mutt" ]; then
 
 					# check if pacman is installed
-					if which pacman > /dev/null; then
+					if which pacman > /dev/null 2>&1; then
 
 						sudo pacman -S --noconfirm mutt
 
 					# check if apt is installed
-					elif which apt > /dev/null; then
+					elif which apt > /dev/null 2>&1; then
 
 						sudo apt install -y mutt
 
@@ -144,24 +144,24 @@ setup-yahoo() {
 	sleep 2
 
 	read -p " Which is your name (show in email) : " choice;
-	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set realname = "user-name"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
 	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
 	echo ""
 
 	read -p " Which is your email address : " choice;
-	sed -i 's/set from = "*."/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
-	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set from = "user-email"/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set imap_user = "useremail@yahoo.com"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
 	echo " email address was added to yahoo account" || echo " Mhummmmm!"
 	echo ""
 
 	read -p " Which is your yahoo username : " choice;
-	sed -i 's/set smtp_url = "smtps://.*@smtp.mail.yahoo.com:465"/set smtp_url = "smtps://'$choice'@smtp.mail.yahoo.com:465"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set smtp_url = "smtps://useremail@smtp.mail.yahoo.com:465"/set smtp_url = "smtps://'$choice'@smtp.mail.yahoo.com:465"/g' $HOME/.config/mutt/accounts/yahoo &&
 	echo " username was added to smtp_url" || echo " it's not you!! but there's a problem"
 	echo ""
 
 	read -p " Which is your password : " choice;
-	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
-	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set smtp_pass = "user-password"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
+	sed -i 's/set imap_pass = "user-password"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/yahoo &&
 	echo " your password has been saved" || echo " We have a problem!"
 	echo ""
 
@@ -177,20 +177,20 @@ setup-gmail() {
 	sleep 2
 
 	read -p " Which is your name (show in email) : " choice;
-	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail  &&
+	sed -i 's/set realname = "user-name"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail  &&
 	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
 	echo ""
 
 	read -p " Which is your email address : " choice;
-	sed -i 's/set from = "*."/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
-	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
-	sed -i 's/set smtp_url = "smtps://.*@smtp.gmail.com:465"/set smtp_url = "smtps://'$choice'@smtp.gmail.com:465"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set from = "user-email"/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set imap_user = "useremail@gmail.com"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set smtp_url = "smtps://useremail@gmail.com@smtp.gmail.com:465"/set smtp_url = "smtps://'$choice'@smtp.gmail.com:465"/g' $HOME/.config/mutt/accounts/gmail &&
 	echo " email address was added to gmail account" || echo " Mhummmmm!"
 	echo ""
 
 	read -p " Which is your password : " choice;
-	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
-	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set smtp_pass = "user-password"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
+	sed -i 's/set imap_pass = "user-password"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/gmail &&
 	echo " your password has been saved" || echo " We have a problem!"
 	echo ""
 
@@ -206,20 +206,20 @@ setup-hotmail() {
 	sleep 2
 
 	read -p " Which is your name (show in email) : " choice;
-	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set realname = "user-name"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
 	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
 	echo ""
 
 	read -p " Which is your email address : " choice;
-	sed -i 's/set from = "*."/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
-	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
-	sed -i 's/set smtp_url = "smtps://.*@smtp.gmail.com:465"/set smtp_url = "smtps://'$choice'@smtp.gmail.com:465"/g' $HOME/.config/mutt/accounts/hotmail &&
-	echo " email address was added to gmail account" || echo " Mhummmmm!"
+	sed -i 's/set from = "user-email"/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set imap_user = "useremail@hotmail.com"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set smtp_url = "smtps://useremail@hotmail.com@smtp.mail.outlook.com:587"/set smtp_url = "smtps://'$choice'@smtp.mail.outlook.com:587"/g' $HOME/.config/mutt/accounts/hotmail &&
+	echo " email address was added to hotmail (outlook) account" || echo " Mhummmmm!"
 	echo ""
 
 	read -p " Which is your password : " choice;
-	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
-	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set smtp_pass = "user-password"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
+	sed -i 's/set imap_pass = "user-password"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/hotmail &&
 	echo " your password has been saved" || echo " We have a problem!"
 	echo ""
 
@@ -235,33 +235,33 @@ custom-account() {
 	sleep 2
 
 	read -p " Which is your name (show in email) : " choice;
-	sed -i 's/set realname = ".*"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set realname = "real-name"/set realname = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
 	echo " your name has been saved" || echo " Hummmm what is wrong with you!"
 	echo ""
 
 	read -p " Which is your email address : " choice;
-	sed -i 's/set from = ".*"/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set from = "real-email"/set from = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
 	echo " email address was ben setup" || echo " We have a problem"
 	echo ""
 
-	read -p " Which is your imap user@address:465 : " choice;
-	sed -i 's/set imap_user = ".*"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	read -p " Which is your imap user : " choice;
+	sed -i 's/set imap_user = "imap-user"/set imap_user = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
 	echo " imap user was added to the account" || echo " Mhummmmm!"
 	echo ""
 
 	read -p " Which is the imap address : " choice;
-	sed -i 's/set folder = "imap://.*:993"/set imap_user = "imap://'$choice':993"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set folder = "imap://customeimap:993"/set imap_user = "imap://'$choice':993"/g' $HOME/.config/mutt/accounts/custom &&
 	echo " imap folder was added to the account" || echo " Mhummmmm!"
 	echo ""
 
 	read -p " Which is your custom smtp : " choice;
-	sed -i 's/set smtp_url = ".*"/set smtp_url = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set smtp_url = "smtps://customersmtp:465"/set smtp_url = "smtps://'$choice':465"/g' $HOME/.config/mutt/accounts/custom &&
 	echo " The smtp url was added to the account" || echo " it's not you!! but there's a problem"
 	echo ""
 
 	read -p " Which is your password : " choice;
-	sed -i 's/set smtp_pass = ".*"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
-	sed -i 's/set imap_pass = ".*"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set smtp_pass = "user-password"/set smtp_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
+	sed -i 's/set imap_pass = "user-password"/set imap_pass = "'$choice'"/g' $HOME/.config/mutt/accounts/custom &&
 	echo " your password has been saved" || echo " We have a problem!"
 	echo ""
 

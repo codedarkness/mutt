@@ -4,21 +4,21 @@
 ## | |_| | (_| | |  |   <| | | |  __/\__ \__ \ |__| (_) | (_| |  __/
 ## |____/ \__,_|_|  |_|\_\_| |_|\___||___/___/\____\___/ \__,_|\___|
 ## -----------------------------------------------------------------
-## https://darkncesscode.com
+## https://darkncesscode.xyz
 ## https://github.com/codedarkness
 ## -----------------------------------------------------------------
 
 ## About Me
-set from = "Your email address"
-set realname = "Your name"
+set from = "user-email"
+set realname = "user-name"
 
 ## Credentials
 # smtp
-set smtp_url = "smtps://username@smtp.mail.yahoo.com:465"
-set smtp_pass = "Your password"
+set smtp_url = "smtps://useremail@smtp.mail.yahoo.com:465"
+set smtp_pass = "user-password"
 # imap
-set imap_user = "youremail@yahoo.com"
-set imap_pass = "Your password"
+set imap_user = "useremail@yahoo.com"
+set imap_pass = "user-password"
 
 set ssl_starttls = yes
 set ssl_force_tls = yes

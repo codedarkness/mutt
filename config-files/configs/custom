@@ -4,21 +4,21 @@
 ## | |_| | (_| | |  |   <| | | |  __/\__ \__ \ |__| (_) | (_| |  __/
 ## |____/ \__,_|_|  |_|\_\_| |_|\___||___/___/\____\___/ \__,_|\___|
 ## -----------------------------------------------------------------
-## https://darkncesscode.com
+## https://darkncesscode.xyz
 ## https://github.com/codedarkness
 ## -----------------------------------------------------------------
 
 ## About Me
-set from = "email"
-set realname = "your name"
+set from = "real-email"
+set realname = "real-name"
 
 ## Credentials
 # smtp
 set smtp_url = "smtps://customesmtp:465"
-set smtp_pass = "your password"
+set smtp_pass = "user-password"
 # imap
-set imap_user = "custom imap user"
-set imap_pass = "your password"
+set imap_user = "imap-user"
+set imap_pass = "user-password"
 
 set ssl_starttls = yes
 set ssl_force_tls = yes
